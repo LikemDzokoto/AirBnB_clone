@@ -4,11 +4,12 @@ BaseModel class
 """
 
 from datetime import datetime
+import models
 import uuid
 
 
 class BaseModel():
-    ''' defines all common attributes and methods for other classes '''
+    ''' defines all common attr and methods for other classes '''
 
     id = None
     created_at = None
@@ -17,7 +18,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         ''' inits this instance '''
         for k, v in kwargs.items():
-            if k == 'created_at' or k == 'updated_at':
+            if k in ('created_at', 'updated_at'):
                 v = datetime.fromisoformat(v)
             if k != '__class__':
                 setattr(self, k, v)
@@ -28,6 +29,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         ''' prints: [<ClassName>] (<self.id>) <self.__dict__> '''
@@ -36,6 +38,7 @@ class BaseModel():
     def save(self):
         ''' updates the attr 'updated_at' with current datetime '''
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         ''' returns a dict representation of this instance '''
