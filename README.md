@@ -26,6 +26,12 @@ The goal of the project is to deploy on your server a simple copy of the AirBnB 
 
 ### Tests Directory
 #### Contains all the unittest thats validates our classes and storage engine 
+#### Run all unit tests
+`python3 -m unittest discover tests`
+
+#### Run a test from a specific file
+`python3 -m unittest tests/tespytestt_models/test_base_model.py`
+
 
 `file_storage.py` Abstracted storage of the project 
 
