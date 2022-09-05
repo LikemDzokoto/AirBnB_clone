@@ -38,5 +38,5 @@ The goal of the project is to deploy on your server a simple copy of the AirBnB 
 
 ### Installation
 * Clone the repository `git clone https://github.com/LikemDzokoto/AirBnB_clone.git`
-* Access the clone repo `cd AirBnB_clone`
+* Access the cloned repo `cd AirBnB_clone`
 * Run the console `./console.py`
