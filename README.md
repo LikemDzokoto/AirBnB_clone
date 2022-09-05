@@ -8,7 +8,7 @@ The goal of the project is to deploy on your server a simple copy of the AirBnB 
 * manage (create, update, destroy, etc) objects via a console / command interpreter
 * store and persist objects to a file (JSON file)
 
-#### List of commands this console current supports:
+#### List of commands this console currently supports:
 * `EOF` - exits console 
 * `quit` - exits console
 * `<emptyline>` - overwrites default emptyline method and does nothing
