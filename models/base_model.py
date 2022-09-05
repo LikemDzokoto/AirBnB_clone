@@ -10,11 +10,11 @@ import uuid
 
 class BaseModel():
     ''' defines all common attr and methods for other classes '''
-
+    """
     id = None
     created_at = None
     updated_at = None
-
+    """
     def __init__(self, *args, **kwargs):
         ''' inits this instance '''
         for k, v in kwargs.items():
