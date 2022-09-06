@@ -17,7 +17,7 @@ class FileStorage():
 
     def new(self, obj):
         ''' adds obj with key ClassName.id into __objects '''
-        my_key = f"BaseModel.{obj.id}"
+        my_key = f"{type(obj).__name__}.{obj.id}"
         self.__objects[my_key] = obj
 
     def save(self):
@@ -41,7 +41,7 @@ class FileStorage():
 
             for key, val in my_dict.items():
                 # deserialize dicts to instances and add to __objects
-                instance = models.BaseModel(**val)
+                instance = models.classes[key[0:key.index('.')]](**val)
                 self.__objects[key] = instance
 
         except FileNotFoundError:
